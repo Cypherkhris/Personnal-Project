@@ -119,6 +119,14 @@ string InfixToPostfix::infToPost(string item)
 		cout << postFix << endl;
 		if (item[i] == ' ')
 			postFix += item[i];
+					else if ((item[i] <= 'z' && item[i] >= 'a') || (item[i] <= 'Z' && item[i] >= 'A'))
+		{
+			postFix += item[i];
+		}
+		else if (item[i] == '^')
+		{
+			postFix += item[i];
+		}
 		else if (IsOperator(item[i]))
 		{
 			while (!stack.empty() && stack.stackTop()!="(" &&HasHigherPrecedence(*(stack.stackTop().c_str()), item[i]))
